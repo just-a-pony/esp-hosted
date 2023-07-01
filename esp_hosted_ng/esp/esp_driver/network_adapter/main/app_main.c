@@ -681,4 +681,7 @@ void app_main()
 	}
 
 	ESP_LOGI(TAG,"Initial set up done");
+
+	void linux_boot(void);
+	linux_boot();
 }
