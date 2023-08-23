@@ -1,4 +1,4 @@
-set(COMPONENT_SRCS "app_main.c" "slave_bt.c" "cmd.c" "stats.c" "linux_ipc.c")
+set(COMPONENT_SRCS "app_main.c" "slave_bt.c" "cmd.c" "stats.c" "linux_ipc.c" "linux_flash.c")
 set(COMPONENT_ADD_INCLUDEDIRS "./include")
 
 if(CONFIG_IDF_TARGET_ESP32S3)
