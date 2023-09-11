@@ -5,6 +5,10 @@ if(CONFIG_IDF_TARGET_ESP32S3)
     list(APPEND COMPONENT_SRCS linux_ll_esp32s3.c)
 endif()
 
+if(CONFIG_JFFS2_READER)
+    list(APPEND COMPONENT_SRCS tiny_jffs2_reader.c)
+endif()
+
 if(CONFIG_ESP_SDIO_HOST_INTERFACE)
     list(APPEND COMPONENT_SRCS sdio_slave_api.c)
 elseif(CONFIG_ESP_SPI_HOST_INTERFACE)
