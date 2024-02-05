@@ -53,17 +53,17 @@ int process_reg_get(uint8_t if_type, uint8_t *payload, uint16_t payload_len);
 
 esp_err_t initialise_wifi(void);
 
-inline esp_err_t send_command_response(interface_buffer_handle_t *buf_handle)
+static inline esp_err_t send_command_response(interface_buffer_handle_t *buf_handle)
 {
 	return send_to_host(PRIO_Q_HIGH, buf_handle);
 }
 
-inline esp_err_t send_command_event(interface_buffer_handle_t *buf_handle)
+static inline esp_err_t send_command_event(interface_buffer_handle_t *buf_handle)
 {
 	return send_to_host(PRIO_Q_HIGH, buf_handle);
 }
 
-inline esp_err_t send_frame_to_host(interface_buffer_handle_t *buf_handle)
+static inline esp_err_t send_frame_to_host(interface_buffer_handle_t *buf_handle)
 {
 	return send_to_host(PRIO_Q_HIGH, buf_handle);
 }
