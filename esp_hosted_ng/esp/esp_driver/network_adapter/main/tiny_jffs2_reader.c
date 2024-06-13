@@ -123,7 +123,7 @@ static bool jffs2_lookup_cb(void *ctx, struct jffs2_node *node, void *data, size
 		memcpy(&dirent, data, sizeof(dirent));
 
 		if (dirent.parent_inode == lookup->parent &&
-		    dirent.version > lookup->version &&
+		    (dirent.version > lookup->version || lookup->version == 0) &&
 		    dirent.name_size == lookup->name_size &&
 		    memcmp_insn(data + sizeof(dirent), lookup->name, lookup->name_size) == 0) {
 			lookup->inode_num = dirent.inode;
