@@ -8,6 +8,18 @@ menu "Linux Bootloader Configuration"
 	    help
 		Read 'cmdline' file from the JFFS2 on the 'etc' partition
 		and pass it as the kernel command line.
+
+	choice LINUX_PSRAM_MAP_SIZE
+	    bool "PSRAM map size"
+	    help
+		Amount of PSRAM to map
+
+	    config LINUX_PSRAM_8M
+		bool "8M"
+
+	    config LINUX_PSRAM_16M
+		bool "16M"
+	endchoice
 endmenu
 
 menu "Example Configuration"

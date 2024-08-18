@@ -26,12 +26,20 @@ void init_linux_mmap(void)
 			abort();
 		}
 	}
+#ifdef CONFIG_LINUX_PSRAM_8M
 	for (i = 0x100; i < 0x180; ++i) {
 		dst[i] = 0x4000;
 	}
 	for (i = 0x180; i < 0x200; ++i) {
 		dst[i] = 0x8000 + (i & 0x7f);
 	}
+#endif
+#ifdef CONFIG_LINUX_PSRAM_16M
+	/* linearly map PSRAM to the range +16M..+32M */
+	for (i = 0x100; i < 0x200; ++i) {
+		dst[i] = 0x8000 + (i & 0xff);
+	}
+#endif
 }
 
 int linux_flash_read(void *data, uint32_t addr, uint32_t size)
